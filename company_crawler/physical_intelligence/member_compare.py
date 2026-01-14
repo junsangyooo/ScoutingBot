@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-memberPath = Path("data/physical_intelligence/members.json")
+memberPath = Path("data/physical_intelligence/pi_members.json")
 
 def member_compare(curr_members):
     curr_set = set(curr_members)
@@ -23,6 +23,11 @@ def member_compare(curr_members):
     added = sorted(list(curr_set - prev_set))
     removed = sorted(list(prev_set - curr_set))
 
+    if not added and not removed:
+        return {
+            "status": "checked"
+        }
+    
     _save_members(curr_members)
 
     return {

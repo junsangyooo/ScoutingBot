@@ -2,7 +2,7 @@ import json
 import hashlib
 from pathlib import Path
 
-DATA_PATH = Path("data/physical_intelligence/positions.json")
+DATA_PATH = Path("data/physical_intelligence/pi_positions.json")
 
 
 def position_compare(curr_positions):
@@ -60,7 +60,12 @@ def position_compare(curr_positions):
                 "before": prev_map[pid].get("description", ""),
                 "after": curr_map[pid].get("description", "")
             })
-
+    
+    if not added and not removed and not updated:
+        return {
+            "status": "checked"
+        }
+    
     # 5️⃣ 현재 상태 저장
     _save(curr_positions)
 

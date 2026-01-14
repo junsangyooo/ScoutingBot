@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-DATA_PATH = Path("data/physical_intelligence/blog.json")
+DATA_PATH = Path("data/physical_intelligence/pi_blog.json")
 
 
 def blog_compare(curr_items):
@@ -41,6 +41,11 @@ def blog_compare(curr_items):
                 "after": curr_map[pid].get("excerpt", "")
             })
 
+    if not added and not removed and not updated:
+        return {
+            "status": "checked"
+        }
+    
     _save(curr_items)
     return {
         "status": "updated",

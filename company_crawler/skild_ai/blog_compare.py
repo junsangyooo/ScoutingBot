@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from typing import List, Dict
 
-DATA_PATH = Path("data/skild_ai/blog.json")
+DATA_PATH = Path("data/skild_ai/skild_blog.json")
 
 def blog_compare(curr_items):
     if not DATA_PATH.exists():
@@ -40,6 +40,11 @@ def blog_compare(curr_items):
                 "before": prev_map[pid].get("excerpt", ""),
                 "after": curr_map[pid].get("excerpt", "")
             })
+
+    if not added and not removed and not updated:
+        return {
+            "status": "checked"
+        }
 
     _save(curr_items)
     return {

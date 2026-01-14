@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import List, Dict
 
-DATA_PATH = Path("data/skild_ai/positions.json")
+DATA_PATH = Path("data/skild_ai/skild_positions.json")
 
 
 def position_compare(curr_items: List[Dict]) -> Dict:
@@ -47,6 +47,11 @@ def position_compare(curr_items: List[Dict]) -> Dict:
                 "before_hash": prev_map[pid]["description_hash"],
                 "after_hash": curr_map[pid]["description_hash"],
             })
+
+    if not added and not removed and not updated:
+        return {
+            "status": "checked"
+        }
 
     _save(curr_items)
 
