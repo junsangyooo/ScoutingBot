@@ -3,8 +3,9 @@ from skild_ai.main import run as run_skild
 
 def crawl_company():
     results = []
-    results.append(run_pi())
-    results.append(run_skild())
+    purpose = input("What data do you want to crawl? (blog/career/all)")
+    results.append(run_pi(purpose))
+    results.append(run_skild(purpose))
     return results
 
 if __name__ == "__main__":
