@@ -25,8 +25,8 @@ def blog_compare(curr_items):
     added_ids = curr_ids - prev_ids
     removed_ids = prev_ids - curr_ids
 
-    added = [curr_ids[i] for i in added_ids]
-    removed = [prev_ids[i] for i in removed_ids]
+    added = [curr_map[i] for i in added_ids]
+    removed = [prev_map[i] for i in removed_ids]
 
     updated = []
     common_ids = prev_ids & curr_ids

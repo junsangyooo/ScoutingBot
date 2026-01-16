@@ -1,5 +1,13 @@
 [
   {
+    "id": "/blogs/series-c",
+    "title": "Announcing Series C",
+    "date": "2026-01-14",
+    "type": "blog",
+    "excerpt": "",
+    "url": "https://www.skild.ai/blogs/series-c"
+  },
+  {
     "id": "/blogs/learning-by-watching",
     "title": "Learning by watching human videos",
     "date": "2026-01-12",
