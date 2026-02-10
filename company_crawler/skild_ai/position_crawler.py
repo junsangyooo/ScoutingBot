@@ -57,6 +57,7 @@ def position_crawler():
                         "compensation": "",
                         "description": description,
                         "description_hash": description_hash,
+                        "url": href,
                     }
                 )
 

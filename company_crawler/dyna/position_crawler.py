@@ -134,7 +134,8 @@ def position_crawler():
                     "location": detail_data['location'],
                     "compensation": detail_data['compensation'],
                     "description": description,
-                    "description_hash": description_hash
+                    "description_hash": description_hash,
+                    "url": full_url
                 })
 
                 print(f"[INFO] Collected: {title} | {detail_data['location']} | {detail_data['compensation']}")

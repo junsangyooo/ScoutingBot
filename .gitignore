@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+.venv/
+.venv_old/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Playwright
+.playwright/
+
+# Data (comment out if you want to track data changes)
+# data/
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+
+# Claude settings (personal)
+.claude/
+
+# Duplicate data directory
+company_crawler/data/

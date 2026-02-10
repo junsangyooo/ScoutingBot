@@ -57,6 +57,7 @@ def position_compare(curr_positions):
             updated.append({
                 "id": pid,
                 "title": curr_map[pid]["title"],
+                "url": curr_map[pid].get("url", ""),
                 "before": prev_map[pid].get("description", ""),
                 "after": curr_map[pid].get("description", "")
             })

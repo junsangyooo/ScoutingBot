@@ -79,7 +79,8 @@ def position_crawler():
                     "location": "",
                     "compensation": "",
                     "description": description,
-                    "description_hash": _hash_text(description)
+                    "description_hash": _hash_text(description),
+                    "url": JOIN_US_URL  # PI uses iframe, so use main careers page
                 })
 
                 time.sleep(0.4)

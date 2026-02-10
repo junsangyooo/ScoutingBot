@@ -43,6 +43,7 @@ def position_compare(curr_items: List[Dict]) -> Dict:
             updated.append({
                 "id": pid,
                 "title": curr_map[pid]["title"],
+                "url": curr_map[pid].get("url", ""),
                 "location": curr_map[pid]["location"],
                 "before_hash": prev_map[pid]["description_hash"],
                 "after_hash": curr_map[pid]["description_hash"],
