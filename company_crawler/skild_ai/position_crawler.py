@@ -26,21 +26,27 @@ def position_crawler():
             job_links = dept.query_selector_all("tr.job-post a")
 
             for link in job_links:
-                title_el = link.query_selector("p.body--medium")
                 location_el = link.query_selector("p.body__secondary")
                 href = link.get_attribute("href")
 
-                if not (title_el and location_el and href):
+                if not (location_el and href):
                     continue
 
-                title = title_el.inner_text().strip()
                 location = location_el.inner_text().strip()
-                job_id = normalize_id(title + "__" + location)
 
                 # === 상세 페이지 새 탭 열기 ===
                 detail_page = browser.new_page()
                 detail_page.goto(href, timeout=60_000)
                 detail_page.wait_for_selector("div.job__description")
+
+                # Get title from detail page (more accurate, excludes tags)
+                title_el = detail_page.query_selector("h1.section-header")
+                if not title_el:
+                    detail_page.close()
+                    continue
+
+                title = title_el.inner_text().strip()
+                job_id = normalize_id(title + "__" + location)
 
                 desc_el = detail_page.query_selector(
                     "div.job__description"
